@@ -1,8 +1,6 @@
 
 # coding: utf-8
 
-# In[6]:
-
 
 ##This cell can perform any polynominal least square fit and display the results. For general fits use the next cell
 ##Uncomment whatever you don't need
@@ -18,21 +16,26 @@ import copy as copy
 data1, data2, data3 = np.loadtxt('exampledata.txt',usecols=(0,1,2),unpack=True)
 #put variables separated by commata, the variables will be lists including your data points
 #data must be in collumns separated by a tab in a text file
-#usecols indicates which collumns you are using eg. if you want to use the first three collumns, you give a tuple
+#usecols indicates which collumns you are using eg. if you want to use the first three columns, you give a tuple
 #to the parameter indicating columns 1, 2, 3. Careful, enumeration in python always starts with zero
 #python uses American notation, meaning commata are represented by points
 
 ################## fit your data with a polynom ############################
-fitparameter,covarianz = np.polyfit(data1,data2,1,full=False,cov=True)
+fitparameter,covariance = np.polyfit(data1,data2,1,full=False,cov=True)
 #indicate degree of polynominal at third place (1 equals a linear least sqare fit)
 #indicate as parameter the data set with your arguments and second the data set with your values corresponding
 #to the arguments
+#The diagonal entries of the covariance matrix contain your errors from the fit for each parameter, e. g. covariance[0][0]
+#contains the error for the coefficient of highest order, covariance[1][1] the error for the coefficient of second highest
+#order etc
 print('The fitparameters are', fitparameter)
-print('Your covariance matrix of the least square fit is', covarianz)
+print('Your covariance matrix of the least square fit is', covariance)
 
 #fitparameter includes the coefficients of your polynominal starting with the highest order
 
 #calculate data points of your fitfunction
+#this example works for linear fits. In case you want to plot polynominals of higher degree just expand the equation in the
+#fit list accordingly eg fitparameter[0]*data**2 + fitparameter[1] * data + fitparameter[3] for data in data 1 etc.
 fit = [fitparameter[0]*data + fitparameter[1] for data in data1]
 
 #plot your data as well as your fit
@@ -120,10 +123,10 @@ plt.show()
 ############use for this special script, to determine the intervall in which the maxima lie so that you can
 ############optimally use the Lorentzian fit for your maxima
 
-#benutzung : wir wollen die peaks einzeln plotten. search in your plot the interval in which your peak is located and then
+#benutzung : You want to plot each peak individualy. Search in your plot the interval in which your peak is located and then
 #####search corresponding values in the list
-#beispielsweise grosser peak zwischen 250 und 300 ev
-#gucke in liste, welche werte da rankommen -> zb 251 und 296
+#e. g. a big peak between 250 and 300 eV
+#look in your data set which values come close -> e.g. 251 eV and 296 eV
 liste = copy.deepcopy(energy)
 energy2 = list(liste)
 ersteposition = energy2.index(386) #put interval limits as seen in the list below here, the beginning of your interval
