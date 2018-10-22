@@ -1,10 +1,6 @@
-
-# coding: utf-8
-
-
 ##This cell can perform any polynominal least square fit and display the results. For general fits use the next cell
 ##Uncomment whatever you don't need
-## Copyright 2018 by redundanceredundance
+## Copyright 2018 by sycramore. The account redundanceredundance where this script was first found is my account to play with stuff.
 ## I'd put this under GPL licence if this works with the licences for juypter and python
 
 import numpy as np
@@ -49,15 +45,12 @@ plt.ylabel('data2')
 plt.show()
 #save the plot using right click on the plot and then use "save as" function, default for saving is png format
 
-
-# In[17]:
-
+####comment from here if you only want to use the first part for fitting and plotting polynoms
 
 #second cell, general nonlinear least square fits 
 #define your fit function with the fit parameters and use scipy.optimize
 #you can fit about any function that you can imagine. Still there might be some trouble on functions defined over an integral
 #such as the error function
-#again, copyright 2018 by redundanceredundance
 #you are free to use this script, modify it and redistribute it at your will
 #I, the author hereby give no guarantee for any results that might be the outcome of your use of this script.
 
@@ -67,7 +60,7 @@ plt.show()
 ####The model does not necessarily have to be a Lorentzian fitted to an optical spectrum, it can have any form you like
 ####and yes, linear fits work as well but it is much easier to use numpy.polyfit for that
 
-
+#uncomment lines for numpy and scipy if you don't intend to use the first part
 #import numpy as np
 #import matplotlib.pyplot as plt
 import scipy.optimize as S
