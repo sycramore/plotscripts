@@ -21,7 +21,7 @@ Even though the original dataset is no longer available, the script itself remai
 
 | File              | Description                             |
 |-------------------|-----------------------------------------|
-| `spectrum_fit.py` | Performs Lorentzian fits to spectral peaks |
+| `peakfinder.py` | Performs Lorentzian fits to spectral peaks |
 | `examplespectrum.dat` | (Missing) Example data file in tab-separated format |
 
 > Feel free to generate your own test data or contact the author if you want to reconstruct a sample dataset.
